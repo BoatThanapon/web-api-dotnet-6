@@ -10,7 +10,12 @@ namespace IIGApi.Controllers
     [Route("api/customers")]
     public class CustomerController : ControllerBase
     {
-        private readonly iiGContext _context = new iiGContext();
+        private readonly iiGContext _context;
+
+        public CustomerController(iiGContext context)
+        {
+            _context = context;
+        }
 
         [HttpGet]
         public async Task<ActionResult<List<Customer>>> Gets()
